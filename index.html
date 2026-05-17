@@ -169,10 +169,15 @@ strong{color:var(--text);font-weight:700}
 <div class="slide bg-div">
 <div class="si">
   <div class="sh"><span>§01</span><span>03 / 18</span></div>
-  <div style="height:60px"></div>
+  <div style="height:48px"></div>
   <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:20px">§01 · The Case for Change</div>
-  <div class="display">The old model<br>had a margin</div>
-  <div style="font-size:92px;font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic;color:var(--gold)">problem.</div>
+  <div class="display">Charging per pair</div>
+  <div class="display">ignores what a pair</div>
+  <div style="font-size:92px;font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic;color:var(--gold)">actually costs.</div>
+  <div style="height:32px"></div>
+  <div style="max-width:580px">
+    <div style="font-size:17px;line-height:1.65;color:rgba(247,242,233,0.55)">The old model billed for <strong style="color:var(--text)">access</strong> — fixed pairs per seat, starting at $499/month. A 5-second gaze check and a 30-second full-brain fMRI scan both consumed "1 pair." The compute gap between them is 60×. The price gap was zero.</div>
+  </div>
   <div class="ghost">01</div>
   <div class="sf"><span>Stimulus by Tridha</span><span>The Case for Change</span></div>
 </div>
@@ -211,28 +216,53 @@ strong{color:var(--text);font-weight:700}
 <div class="si">
   <div class="sh"><span>§01 · The Case for Change</span><span>05 / 18</span></div>
   <div class="pill"><span class="dot dot-p"></span>The Old Model</div>
-  <div class="subtitle" style="margin-bottom:8px">100,000 SNT at $100 was over-allocated</div>
-  <div class="lead" style="margin-bottom:26px;max-width:700px">and structurally exposed to GPU cost abuse.</div>
+  <div class="subtitle" style="margin-bottom:8px">The seat-and-pair model</div>
+  <div class="lead" style="margin-bottom:22px;max-width:700px">billed for access, not for compute — and left no room to grow.</div>
+
+  <!-- Old tier summary strip -->
+  <div style="display:flex;gap:10px;margin-bottom:22px">
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px">
+      <div class="cl">Scout</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text)">$499<span style="font-size:13px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">10 pairs · winner call only</div>
+    </div>
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px">
+      <div class="cl">Pro</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text)">$1,900<span style="font-size:13px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">60 pairs · advantage score</div>
+    </div>
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px">
+      <div class="cl">Pro+</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text)">$4,800<span style="font-size:13px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">200 pairs · why-it-won rationale</div>
+    </div>
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px">
+      <div class="cl">Command</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text)">Custom</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">Unlimited · API + SSO</div>
+    </div>
+  </div>
+
   <div class="g4">
     <div class="card">
-      <div class="cl">GPU Cost Exposure</div>
-      <div class="ct">The fMRI layer is expensive to run.</div>
-      <div class="cb">The Simulated fMRI modality (TRIBE v2) requires a 28–32 GB VRAM cluster. At 100K SNT, a user could run ~66 complete 15s fMRI scans per month — far more compute than the $100 price point can sustainably cover.</div>
+      <div class="cl">Entry Barrier</div>
+      <div class="ct">$499/month locked out the entire freelancer market.</div>
+      <div class="cb">The cheapest plan was nearly $500 — before a single scan confirmed any value. For a solo performance consultant managing a ₹20K/month tool budget, this was a non-starter. The market went elsewhere.</div>
     </div>
     <div class="card">
-      <div class="cl">Usage Pattern Mismatch</div>
-      <div class="ct">Agencies test in bursts, not every day.</div>
-      <div class="cb">A flat 100K token pool was misaligned with the actual workflow. Most freelancers needed high-frequency lightweight checks — not a surplus of deep fMRI runs they'd never use.</div>
+      <div class="cl">Compute-Blind Billing</div>
+      <div class="ct">One pair, regardless of depth, cost the same.</div>
+      <div class="cb">A 30-second full-suite fMRI scan (TRIBE v2, 28–32 GB VRAM) and a 5-second gaze check both consumed "1 pair." The model charged for access, not compute — creating structural margin loss at every fMRI-heavy account.</div>
     </div>
     <div class="card">
-      <div class="cl">Broken Upgrade Path</div>
-      <div class="ct">No reason to move to a higher tier.</div>
-      <div class="cb">With 100K SNT available, the majority of freelancers could operate indefinitely on the $100 plan. The expansion revenue path to the $420 tier was blocked by over-allocation at entry.</div>
+      <div class="cl">No Micro-Entry</div>
+      <div class="ct">Free → $499 with nothing in between.</div>
+      <div class="cb">There was no ₹99 pay-per-scan step, no trial that preserved upgrade intent. The jump from "interested" to "committed" required $499 up front. Most agencies evaluated alternatives instead of converting.</div>
     </div>
     <div class="card">
-      <div class="cl">Structural Subsidy</div>
-      <div class="ct">Heavy users were cross-subsidised.</div>
-      <div class="cb">Power users running intensive fMRI scans were effectively being subsidised by lighter users. This erodes platform margins at exactly the tier designed to acquire and convert new customers.</div>
+      <div class="cl">Dead Upgrade Zone</div>
+      <div class="ct">$499 → $1,900 is a 3.8× cliff. Agencies stalled.</div>
+      <div class="cb">A growing agency that outgrew Scout had only one option: a $1,400/month step up. There was no intermediate ramp. This created a loyalty cliff — agencies churned rather than upgrading, capping expansion revenue.</div>
     </div>
   </div>
   <div class="sf"><span>Tridha · 2026</span><span>The Problem</span></div>
@@ -383,30 +413,30 @@ strong{color:var(--text);font-weight:700}
   <div class="sh"><span>§02 · New Pricing Architecture</span><span>10 / 18</span></div>
   <div class="pill"><span class="dot"></span>Why This Pricing</div>
   <div class="subtitle" style="margin-bottom:8px">Enough to work.</div>
-  <div class="lead" style="margin-bottom:26px"><em>Not enough to waste.</em> The Freelancer tier was specifically re-engineered from 100K → 40K SNT. Here is why.</div>
+  <div class="lead" style="margin-bottom:26px"><em>Not enough to waste.</em> Three decisions made deliberately — each one fixes a specific flaw in the old pair-based model.</div>
   <div class="nr">
     <div class="nrn">01</div>
     <div class="nrb">
-      <div class="nrt">The fMRI Problem: 100K SNT covered 66 deep scans at the entry price point.</div>
-      <div class="nrd">The fMRI modality costs 60 SNT/sec. At 100,000 SNT, a user could run 1,111 seconds of pure fMRI inference — equivalent to ~66 complete 15s scans per month. Serving those scans on NVIDIA A100 clusters at $100 was a structural loss.</div>
+      <div class="nrt">Entry price dropped from $499 → $100. The market below $499 was never served.</div>
+      <div class="nrd">The old Scout tier at $499/month excluded the entire Indian freelancer segment (₹20K–₹45K monthly SaaS budgets). Moving entry to $100 opens this segment without a structural loss — because compute is now billed per-token, not per-pair.</div>
     </div>
-    <div class="nrv">66 → 20</div>
+    <div class="nrv">$499→$100</div>
   </div>
   <div class="nr">
     <div class="nrn">02</div>
     <div class="nrb">
-      <div class="nrt">The New Balance: 40K SNT maps precisely to how Indian freelancers actually work.</div>
-      <div class="nrd">Indian performance freelancers managing ₹20K–₹45K monthly SaaS budgets need 8–9 visual variants tested every day — not deep brain scans. 40K SNT gives them 266 gaze checks/month (daily usage) plus 20 fMRI runs as a buffer for premium corporate work.</div>
+      <div class="nrt">Freelancer SNT set at 40K — not more. The fMRI layer costs 60 SNT/sec to serve.</div>
+      <div class="nrd">At 40,000 SNT, a $100 user can run ~20 complete 15s fMRI scans — enough for premium corporate work, not enough to abuse. The old model had no compute visibility; 40K SNT is calibrated so compute costs stay inside the revenue the tier generates.</div>
     </div>
-    <div class="nrv">8–9/day</div>
+    <div class="nrv">66 → 20</div>
   </div>
   <div class="nr">
     <div class="nrn">03</div>
     <div class="nrb">
-      <div class="nrt">The Upgrade Path: Volume pushes users toward Booster Packs or the $420 tier naturally.</div>
-      <div class="nrd">When a freelancer wins a corporate pitch requiring 10+ fMRI runs, they hit their token ceiling. At that point, Agency Booster Packs ($10 / 10,000 SNT) become the bridge — or they upgrade to Growth Agency, generating predictable expansion revenue (NRR target: &gt;125%).</div>
+      <div class="nrt">The upgrade path is smooth: $100 → $420 → $1,450 with Booster Packs as bridges.</div>
+      <div class="nrd">The old $499 → $1,900 jump had no intermediate ramp. The new structure has a 4.2× step from Freelancer to Growth Agency, with Agency Booster Packs ($10 / 10K SNT) as a natural bridge when freelancers hit token ceilings — generating expansion revenue rather than churn.</div>
     </div>
-    <div class="nrv">&gt;125%</div>
+    <div class="nrv">&gt;125% NRR</div>
   </div>
   <div class="sf"><span>Tridha · 2026</span><span>Rationale</span></div>
 </div>
