@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stimulus — Pricing & GTM Strategy 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,700..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#050507; --bg2:#09090e;
+  --panel:rgba(255,255,255,0.055);
+  --panel2:rgba(255,255,255,0.085);
+  --panel3:rgba(255,255,255,0.12);
+  --line:rgba(255,255,255,0.12);
+  --line2:rgba(255,255,255,0.2);
+  --text:#f7f2e9;
+  --muted:rgba(247,242,233,0.68);
+  --faint:rgba(247,242,233,0.44);
+  --gold:#e4bd6d; --gold2:#ffe1a1;
+  --violet:#8b5cf6; --pink:#ff4fd8;
+  --blue:#46a2ff; --green:#73ffb7;
+  --red:#ff6a75; --orange:#ff9b4a;
+  --px:96px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Inter',ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--text)}
+.deck{width:100vw;height:100vh;position:relative}
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.slide.active{opacity:1;pointer-events:all}
+.bg-std{background:radial-gradient(circle at 18% -8%,rgba(228,189,109,.18),transparent 36%),radial-gradient(circle at 88% 8%,rgba(139,92,246,.2),transparent 34%),radial-gradient(circle at 50% 110%,rgba(70,162,255,.12),transparent 40%),linear-gradient(rgb(6,6,9) 0%,rgb(8,9,16) 42%,rgb(5,5,7) 100%)}
+.bg-div{background:radial-gradient(circle at 28% 30%,rgba(228,189,109,.3),transparent 42%),radial-gradient(circle at 78% 70%,rgba(255,79,216,.22),transparent 40%),radial-gradient(circle,rgba(139,92,246,.18),transparent 50%),linear-gradient(rgb(5,5,7),rgb(3,3,5))}
+.si{width:100%;height:100%;padding:0;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.sh{flex-shrink:0;display:flex;justify-content:space-between;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding:24px var(--px) 0}
+.sf{flex-shrink:0;display:flex;justify-content:space-between;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);border-top:1px solid var(--line);padding:14px var(--px) 16px;margin-top:auto}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:fit-content;margin-bottom:22px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.dot-b{background:var(--blue)}.dot-v{background:var(--violet)}.dot-p{background:var(--pink)}.dot-g{background:var(--green)}.dot-o{background:var(--orange)}
+.display{font-size:92px;font-weight:900;line-height:.95;letter-spacing:-.03em;color:var(--text)}
+.title{font-size:64px;font-weight:800;line-height:1.05;letter-spacing:-.03em;color:var(--text)}
+.subtitle{font-size:40px;font-weight:800;line-height:1.1;letter-spacing:-.025em;color:var(--text)}
+.lead{font-size:21px;font-weight:400;line-height:1.55;color:var(--muted)}
+.body{font-size:18px;font-weight:400;line-height:1.6;color:var(--muted)}
+.sm{font-size:14px;line-height:1.5;color:var(--faint)}
+em{color:var(--gold);font-style:italic}
+strong{color:var(--text);font-weight:700}
+.acc{color:var(--gold)}
+.sp{flex:1}
+.ghost{position:absolute;bottom:52px;right:72px;font-size:260px;font-weight:900;letter-spacing:-.06em;line-height:1;color:rgba(139,92,246,.13);pointer-events:none;user-select:none}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card2{background:var(--panel2)}
+.cl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.ct{font-size:19px;font-weight:700;line-height:1.25;color:var(--text);margin-bottom:8px}
+.cb{font-size:14px;line-height:1.55;color:var(--muted)}
+.stat-n{font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--text)}
+.stat-l{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-top:7px}
+.stat-s{font-size:12px;color:var(--faint);margin-top:3px}
+.nr{display:flex;align-items:flex-start;gap:22px;padding:18px 22px;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+.nrn{font-size:13px;font-weight:700;color:var(--faint);min-width:26px;padding-top:2px}
+.nrb{flex:1}
+.nrt{font-size:17px;font-weight:700;color:var(--text);margin-bottom:4px}
+.nrd{font-size:14px;color:var(--muted);line-height:1.5}
+.nrv{font-size:24px;font-weight:800;color:var(--gold);letter-spacing:-.02em;min-width:100px;text-align:right;align-self:center}
+.pc{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+.pc.feat{background:var(--panel2);border-color:rgba(139,92,246,.35)}
+.pt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
+.pn{font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px}
+.pg{font-size:14px;color:var(--muted);line-height:1.4;margin-bottom:16px;min-height:40px}
+.pp{font-size:38px;font-weight:800;letter-spacing:-.03em;color:var(--text)}
+.pp span{font-size:15px;font-weight:400;color:var(--muted)}
+.ptk{font-size:13px;color:var(--gold);font-weight:600;margin-top:3px;margin-bottom:16px}
+.pd{height:1px;background:var(--line);margin:4px 0 16px}
+.pf{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--muted);line-height:1.4;margin-bottom:8px}
+.pf::before{content:'✦';color:var(--gold);font-size:11px;margin-top:2px;flex-shrink:0}
+.mc{display:flex;flex-direction:column;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.mr{font-size:36px;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.mu{font-size:14px;color:var(--muted)}
+.mn{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:5px;margin-top:4px}
+.md{font-size:12px;color:var(--faint);line-height:1.5;margin-top:6px}
+.lc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.ln{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.lt{font-size:18px;font-weight:800;color:var(--text);margin-bottom:10px}
+.li{font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:7px;display:flex;gap:8px}
+.li::before{content:'·';color:var(--gold);flex-shrink:0}
+.ph{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.pw{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.pt2{font-size:19px;font-weight:800;color:var(--text);margin-bottom:10px}
+.pi{font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:6px;display:flex;gap:8px}
+.pi::before{content:'→';color:var(--faint);flex-shrink:0}
+.kr{display:flex;align-items:flex-start;gap:0;border-bottom:1px solid rgba(255,255,255,.05);padding:15px 0}
+.kt{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);min-width:110px;padding-top:3px}
+.kn{font-size:17px;font-weight:700;color:var(--text);flex:1}
+.kd{font-size:13px;color:var(--muted);line-height:1.5;max-width:380px}
+.kv{font-size:22px;font-weight:800;color:var(--gold);min-width:80px;text-align:right;letter-spacing:-.02em}
+.cm{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);padding-top:20px;margin-top:44px;gap:0}
+.cml{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:5px;display:flex;align-items:center;gap:7px}
+.cml::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.cmv{font-size:17px;font-weight:600;color:var(--text)}
+.cr{display:flex;align-items:center;gap:22px;padding:17px 20px;background:var(--panel);border:1px solid var(--line);border-radius:13px;margin-bottom:10px}
+.crn{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.06em;min-width:36px}
+.crt{flex:1;font-size:17px;font-weight:600;color:var(--text)}
+.crs{font-size:13px;color:var(--faint);text-align:right}
+.gt{background:linear-gradient(105deg,#fffdf4 0%,#f6e2a8 32%,#ff76df 60%,#72b9ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 14px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.05);font-size:14px;line-height:1.4;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td strong{color:var(--text)}
+.tbl-hl td{background:var(--panel);color:var(--text)}
+.tbl-hl td:first-child{border-radius:8px 0 0 8px}
+.tbl-hl td:last-child{border-radius:0 8px 8px 0}
+.nav{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:14px;padding:18px;z-index:200}
+.nb{width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--line);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:background .15s;user-select:none}
+.nb:hover{background:var(--panel2)}
+.nc{font-size:13px;font-weight:500;color:var(--muted);min-width:56px;text-align:center}
+.nr2{background:var(--panel);border:1px solid var(--line);color:var(--faint);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:inherit}
+.ns{width:1px;height:20px;background:var(--line)}
+@media print {
+  @page { size: 13.33in 7.5in; margin: 0; }
+  html, body { width: 13.33in; height: 7.5in; overflow: visible; }
+  .deck { width: 13.33in; height: auto; position: static; }
+  .slide {
+    position: relative !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    width: 13.33in;
+    height: 7.5in;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+    display: block !important;
+  }
+  .si-body { overflow-y: visible !important; -webkit-mask-image: none !important; mask-image: none !important; max-height: none !important; }
+  .si { overflow: visible !important; }
+  .slide:last-of-type { page-break-after: avoid; break-after: avoid; }
+  .nav { display: none !important; }
+}
+.si-body{flex:1;overflow-y:auto;overflow-x:hidden;padding:18px var(--px) 8px;scrollbar-width:thin;scrollbar-color:rgba(228,189,109,.25) transparent;-webkit-mask-image:linear-gradient(to bottom,black calc(100% - 48px),transparent 100%);mask-image:linear-gradient(to bottom,black calc(100% - 48px),transparent 100%)}
+.si-body::-webkit-scrollbar{width:3px}
+.si-body::-webkit-scrollbar-track{background:transparent}
+.si-body::-webkit-scrollbar-thumb{background:rgba(228,189,109,.3);border-radius:2px}
+.vbs-badge{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--gold);border-radius:10px;padding:10px 16px;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.04em;margin-bottom:12px;background:rgba(228,189,109,.06)}
+.vbs-badge::before{content:'⬡';font-size:16px}
+
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ─── SLIDE 1 COVER ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh">
+    <span>Stimulus · by Tridha &nbsp;·&nbsp; Pricing &amp; GTM Strategy</span>
+  </div>
+<div class="si-body">
+  <div class="pill"><span class="dot"></span>Internal Strategy Brief · May 2026</div>
+  <div class="display">The New Price<br>of Certainty.</div>
+  <div style="font-size:64px;font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic;color:var(--gold);margin-top:8px">Updated.</div>
+  <div style="height:28px"></div>
+  <div class="lead" style="max-width:620px">A revised token-economics model and a structured five-layer go-to-market playbook for Stimulus in the Indian digital agency ecosystem.</div>
+  <div class="cm">
+    <div>
+      <div class="cml">Prepared For</div>
+      <div class="cmv">Tridha Leadership</div>
+    </div>
+    <div>
+      <div class="cml">Version</div>
+      <div class="cmv">v2.0 — New Pricing</div>
+    </div>
+    <div>
+      <div class="cml">Date</div>
+      <div class="cmv">May 2026</div>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+<!-- ─── SLIDE 2 CONTENTS ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>Stimulus · Sales Briefing</span><span>02 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-v"></span>Contents</div>
+  <div class="subtitle" style="margin-bottom:36px">Three acts.<br>One strategy.</div>
+  <div class="cr"><div class="crn">§01</div><div class="crt">The Case for Change</div><div class="crs">Why the pricing model had to evolve</div></div>
+  <div class="cr"><div class="crn">§02</div><div class="crt">The New Pricing Architecture</div><div class="crs">Token economics · $1 = 1,000 SNT · Three tiers</div></div>
+  <div class="cr"><div class="crn">§03</div><div class="crt">Go-to-Market Strategy</div><div class="crs">Five layers · Twelve weeks to launch</div></div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Overview</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 3 DIVIDER §01 ─── -->
+<div class="slide bg-div">
+<div class="si">
+  <div class="sh"><span>§01</span><span>03 / 19</span></div>
+<div class="si-body">
+  <div style="height:48px"></div>
+  <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:20px">§01 · The Case for Change</div>
+  <div class="display">Charging per pair</div>
+  <div class="display">ignores what a pair</div>
+  <div style="font-size:92px;font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic;color:var(--gold)">actually costs.</div>
+  <div style="height:32px"></div>
+  <div style="max-width:580px">
+    <div style="font-size:17px;line-height:1.65;color:rgba(247,242,233,0.55)">The old model billed for <strong style="color:var(--text)">access</strong> — fixed pairs per seat, starting at $499/month. A 5-second gaze check and a 30-second full-brain fMRI scan both consumed "1 pair." The compute gap between them is 60×. The price gap was zero.</div>
+  </div>
+  <div class="ghost">01</div>
+  </div>
+<div class="sf"><span>Stimulus by Tridha</span><span>The Case for Change</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 4 MARKET REALITY ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§01 · The Case for Change</span><span>04 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-b"></span>The Market · 2026</div>
+  <div class="title" style="margin-bottom:20px">Indian agencies are paid<br>for results, not production.</div>
+  <div class="lead" style="max-width:640px;margin-bottom:28px">In 2026, India's digital ad market has crossed <strong>₹51,000 crore</strong>. Agencies are increasingly compensated on performance — 10–25% of ad spend tied to conversion metrics. In this environment, wasting media budget on content that was never validated is not a creative risk. It's a financial one.</div>
+  <div class="g3">
+    <div class="card">
+      <div class="stat-n">₹51K Cr</div>
+      <div class="stat-l">Total Digital Ad Market</div>
+      <div class="stat-s">India FY2025 · ~46% of total ad spend</div>
+    </div>
+    <div class="card">
+      <div class="stat-n">25%</div>
+      <div class="stat-l">Average AI Tools Budget Share</div>
+      <div class="stat-s">Of marketing budgets allocated to AI tools</div>
+    </div>
+    <div class="card">
+      <div class="stat-n">48%</div>
+      <div class="stat-l">High-Value Target Segment</div>
+      <div class="stat-s">Transformers + Democratizers · Speed-first buyers</div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Market</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 5 OLD MODEL FLAW ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§01 · The Case for Change</span><span>05 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-p"></span>The Old Model</div>
+  <div class="subtitle" style="margin-bottom:8px">The seat-and-pair model</div>
+  <div class="lead" style="margin-bottom:18px;max-width:760px">billed for <em>access</em>, not for compute. By 2026, the "Seat Apocalypse" made this structurally indefensible.</div>
+
+  <!-- Old tier summary strip -->
+  <div style="display:flex;gap:10px;margin-bottom:18px">
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px">
+      <div class="cl">Scout</div>
+      <div style="font-size:20px;font-weight:800;color:var(--text)">$499<span style="font-size:12px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">10 pairs · winner call only</div>
+    </div>
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px">
+      <div class="cl">Pro</div>
+      <div style="font-size:20px;font-weight:800;color:var(--text)">$1,900<span style="font-size:12px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">60 pairs · advantage score</div>
+    </div>
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px">
+      <div class="cl">Pro+</div>
+      <div style="font-size:20px;font-weight:800;color:var(--text)">$4,800<span style="font-size:12px;font-weight:400;color:var(--muted)">/mo</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">200 pairs · why-it-won rationale</div>
+    </div>
+    <div style="flex:1;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px">
+      <div class="cl">Command</div>
+      <div style="font-size:20px;font-weight:800;color:var(--text)">Custom</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">Unlimited · API + SSO</div>
+    </div>
+    <div style="flex:1;background:rgba(228,189,109,.08);border:1px solid rgba(228,189,109,.25);border-radius:12px;padding:14px 16px">
+      <div class="cl" style="color:var(--gold)">The Signal · 2026</div>
+      <div style="font-size:20px;font-weight:800;color:var(--text)">+38%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">faster growth for metered vs flat-seat SaaS</div>
+    </div>
+  </div>
+
+  <div class="g4">
+    <div class="card">
+      <div class="cl">Entry Barrier</div>
+      <div class="ct">$499/month locked out the entire freelancer market.</div>
+      <div class="cb">For a solo consultant on a ₹20K/month tool budget, Scout was a non-starter. The brain never got to evaluate the product. The seat model charged for a chair before the user had seen the room.</div>
+    </div>
+    <div class="card">
+      <div class="cl">Value Leakage</div>
+      <div class="ct">Stimulus did the work of 3 researchers. It charged for 1 seat.</div>
+      <div class="cb">When a diagnostic tool automates what three researchers did manually, charging a flat seat fee lets the vendor capture only a fraction of the value delivered. Usage-based pricing captures the upside that flat seats structurally give away.</div>
+    </div>
+    <div class="card">
+      <div class="cl">Compute-Blind Billing</div>
+      <div class="ct">A gaze check and a full fMRI scan both cost "1 pair."</div>
+      <div class="cb">The compute gap between them is 60×. TRIBE v2 (28–32 GB VRAM) vs a 2D CNN saliency pass are not the same operation. Charging the same price for both creates structural margin loss at every fMRI-heavy account.</div>
+    </div>
+    <div class="card">
+      <div class="cl">Dead Upgrade Zone</div>
+      <div class="ct">$499 → $1,900 is a 3.8× cliff with no bridge.</div>
+      <div class="cb">A growing agency that outgrew Scout had one option: a $1,400/month step-change. No intermediate tier, no booster packs. Agencies churned rather than upgraded — killing the expansion revenue path entirely.</div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>The Problem</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 6 DIVIDER §02 ─── -->
+<div class="slide bg-div">
+<div class="si">
+  <div class="sh"><span>§02</span><span>06 / 19</span></div>
+<div class="si-body">
+  <div style="height:60px"></div>
+  <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:20px">§02 · The New Pricing Architecture</div>
+  <div class="display">Pay for what</div>
+  <div class="display">the brain</div>
+  <div style="font-size:92px;font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic;color:var(--gold)">actually computes.</div>
+  <div class="ghost">02</div>
+  </div>
+<div class="sf"><span>Stimulus by Tridha</span><span>New Pricing</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 7 TOKEN STANDARD ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§02 · New Pricing Architecture</span><span>07 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot"></span>The Standard Value Metric</div>
+  <div class="title" style="margin-bottom:10px">$1.00 USD = 1,000 SNT</div>
+  <div class="lead" style="margin-bottom:28px;max-width:660px">SNT (Stimulus Neuro-Tokens) is the platform's native billing currency. One transparent conversion rate. No per-seat fees. No resolution tiers. You pay for the cognitive modalities you activate and the duration of the clip you scan — nothing else.</div>
+  <div class="g4">
+    <div class="mc">
+      <div class="mn">Eye Gaze · Visual Salience</div>
+      <div class="mr">10 <span class="mu">SNT/sec</span></div>
+      <div class="md">Low compute. 2D CNN saliency on normalised 224×224 frames. Predicts where the eye lands in the first 250ms. Ideal for visual hierarchy and thumb-stop checks.</div>
+    </div>
+    <div class="mc">
+      <div class="mn">Facial Expression · Emotion AI</div>
+      <div class="mr">15 <span class="mu">SNT/sec</span></div>
+      <div class="md">Moderate GPU. Frame-by-frame facial Action Unit parsing. Tracks micro-expression engagement and emotional arousal valleys across the clip timeline.</div>
+    </div>
+    <div class="mc">
+      <div class="mn">Voice Sentiment · Acoustics</div>
+      <div class="mr">15 <span class="mu">SNT/sec</span></div>
+      <div class="md">Moderate GPU. Dual-recurrent encoder processes audio and speech simultaneously. Extracts acoustic pitch, resonance, and confidence vectors in real time.</div>
+    </div>
+    <div class="mc">
+      <div class="mn">Simulated fMRI Projection</div>
+      <div class="mr" style="color:var(--gold)">60 <span class="mu" style="color:var(--muted)">SNT/sec</span></div>
+      <div class="md">High compute. Loads Meta's TRIBE v2 trimodal model across 28–32 GB VRAM. Maps emotional reward (amygdala) and processing friction (prefrontal cortex) — the deepest diagnostic available.</div>
+    </div>
+  </div>
+  <div style="margin-top:auto;padding:12px 18px;background:rgba(228,189,109,.07);border:1px solid rgba(228,189,109,.2);border-radius:10px;font-size:12px;color:rgba(247,242,233,0.55);line-height:1.6">
+    <strong style="color:var(--gold)">Note on pricing:</strong> SNT rates above are indicative and based on current GPU benchmark estimates. Final per-modality rates will be recalibrated once COGS (compute cost per inference) is fully instrumented. This model serves as a structural framework for pricing design — actual margins will be validated against real usage data before public launch.
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Token Model</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 8 SCAN CONFIGS ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§02 · New Pricing Architecture</span><span>08 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-g"></span>What a Scan Actually Costs</div>
+  <div class="subtitle" style="margin-bottom:26px">Four configurations. <em>₹12 to ₹162 per scan.</em></div>
+  <div class="g4">
+    <div class="card">
+      <div class="cl">Config 1 · Visual Only</div>
+      <div class="ct">Pure Gaze Scan</div>
+      <div style="font-size:28px;font-weight:800;color:var(--text);margin:10px 0 4px">150 SNT</div>
+      <div style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px">$0.15 · ~₹12 per scan</div>
+      <div class="cb">15s × 10 SNT/s<br><br>Best for: Pre-testing static thumbnails, text-graphic overlays, CTA visual dominance checks. The fastest, cheapest daily check for performance creatives.</div>
+    </div>
+    <div class="card">
+      <div class="cl">Config 2 · Social &amp; Actor</div>
+      <div class="ct">Face + Audio Scan</div>
+      <div style="font-size:28px;font-weight:800;color:var(--text);margin:10px 0 4px">450 SNT</div>
+      <div style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px">$0.45 · ~₹37 per scan</div>
+      <div class="cb">15s × 30 SNT/s<br><br>Best for: Testing the authenticity and emotional resonance of talking-head UGC actors and brand spokespersons. Widely used for influencer content validation.</div>
+    </div>
+    <div class="card card2">
+      <div class="cl">Config 3 · Trust &amp; Clarity</div>
+      <div class="ct">Gaze + fMRI Scan</div>
+      <div style="font-size:28px;font-weight:800;color:var(--text);margin:10px 0 4px">1,050 SNT</div>
+      <div style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px">$1.05 · ~₹87 per scan</div>
+      <div class="cb">15s × 70 SNT/s<br><br>Best for: Ad banners and product explainer videos where visual clarity and cognitive load must be balanced. De-risks complex financial product campaigns.</div>
+    </div>
+    <div class="card card2">
+      <div class="cl">Config 4 · Full Suite + India</div>
+      <div class="ct">All Modalities + Vernacular</div>
+      <div style="font-size:28px;font-weight:800;color:var(--text);margin:10px 0 4px">1,950 SNT</div>
+      <div style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px">$1.95 · ~₹162 per scan</div>
+      <div class="cb">15s × 100 SNT/s × 1.3×<br><br>Best for: High-stakes regional BFSI campaigns (Muthoot, HDFC) targeting non-digitally-savvy audiences in Hindi, Tamil, or Telugu. Includes localised vernacular cohort model.</div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Scan Economics</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 9 THREE PLANS ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§02 · New Pricing Architecture</span><span>09 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-v"></span>The New Plans</div>
+  <div class="subtitle" style="margin-bottom:18px">Four tiers. <em>1 full analysis = 1,500 SNT.</em></div>
+  <div class="g4" style="flex:1;align-items:stretch">
+    <div class="pc" style="font-size:13px">
+      <div class="pt">Startup / Freelancer</div>
+      <div class="pn" style="font-size:20px">Startup</div>
+      <div class="pg" style="font-size:13px;min-height:36px">Individual creators, Tier 2 boutiques, early-stage studios.</div>
+      <div class="pp" style="font-size:30px">$96 <span>/ month</span></div>
+      <div class="ptk">~95,000 SNT included</div>
+      <div class="pd"></div>
+      <div class="pf" style="font-size:13px"><strong style="color:var(--text)">~63 full analyses</strong> / month</div>
+      <div class="pf" style="font-size:13px">$24 per additional analysis</div>
+      <div class="pf" style="font-size:13px">Single user seat</div>
+      <div class="pf" style="font-size:13px">Web dashboard + UPI checkout</div>
+      <div class="pf" style="font-size:13px">Figma & Chrome plugin</div>
+    </div>
+    <div class="pc feat">
+      <div class="pt">Growth Agency · Most Popular</div>
+      <div class="pn" style="font-size:20px">Growth Agency</div>
+      <div class="pg" style="font-size:13px;min-height:36px">Mid-sized firms — ROI Minds, Social Panga, echoVME.</div>
+      <div class="pp" style="font-size:30px">$422 <span>/ month</span></div>
+      <div class="ptk">~420,000 SNT included</div>
+      <div class="pd"></div>
+      <div class="pf" style="font-size:13px"><strong style="color:var(--text)">~280 full analyses</strong> / month</div>
+      <div class="pf" style="font-size:13px">$18 per additional analysis</div>
+      <div class="pf" style="font-size:13px">Up to 10 user seats</div>
+      <div class="pf" style="font-size:13px">Brand kit manager + parallel scans</div>
+      <div class="pf" style="font-size:13px">Priority support + PDF reports</div>
+    </div>
+    <div class="pc">
+      <div class="pt">Performance Studio</div>
+      <div class="pn" style="font-size:20px">Performance Studio</div>
+      <div class="pg" style="font-size:13px;min-height:36px">Large-scale production houses — WATConsult, Webchutney.</div>
+      <div class="pp" style="font-size:30px">$1,446 <span>/ month</span></div>
+      <div class="ptk">~1,440,000 SNT included</div>
+      <div class="pd"></div>
+      <div class="pf" style="font-size:13px"><strong style="color:var(--text)">~960 full analyses</strong> / month</div>
+      <div class="pf" style="font-size:13px">$12 per additional analysis</div>
+      <div class="pf" style="font-size:13px">Unlimited user seats + SSO</div>
+      <div class="pf" style="font-size:13px">Full API + MCP Server integration</div>
+      <div class="pf" style="font-size:13px">Custom audience priors</div>
+    </div>
+    <div class="pc" style="border-color:rgba(139,92,246,.25)">
+      <div class="pt" style="color:var(--violet)">Enterprise</div>
+      <div class="pn" style="font-size:20px">Enterprise</div>
+      <div class="pg" style="font-size:13px;min-height:36px">Global agencies — holding companies, BFSI, large brand in-house teams.</div>
+      <div class="pp" style="font-size:30px">Custom</div>
+      <div class="ptk" style="color:var(--violet)">Unlimited SNT · SLA guaranteed</div>
+      <div class="pd"></div>
+      <div class="pf" style="font-size:13px"><strong style="color:var(--text)">Unlimited analyses</strong></div>
+      <div class="pf" style="font-size:13px">Custom overage · volume discount</div>
+      <div class="pf" style="font-size:13px">Dedicated infrastructure</div>
+      <div class="pf" style="font-size:13px">White-label "Verified by Stimulus" reports</div>
+      <div class="pf" style="font-size:13px">Custom audience priors + co-branding</div>
+    </div>
+  </div>
+  <div style="margin-top:10px;padding:9px 16px;background:rgba(228,189,109,.06);border:1px solid rgba(228,189,109,.18);border-radius:8px;font-size:11.5px;color:rgba(247,242,233,0.5);line-height:1.5">
+    <strong style="color:rgba(228,189,109,.7)">Pricing note:</strong> Tiers above are indicative. SNT equivalents at $1 = 1,000 SNT. Final rates will be recalibrated against actual COGS once compute is fully instrumented. $6 on-demand scan available without a monthly plan.
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Tiers</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 10 HIGGSFIELD COMPARISON ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§02 · New Pricing Architecture</span><span>10 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-v"></span>Stimulus vs Higgsfield</div>
+  <div class="subtitle" style="margin-bottom:6px">Scientific Validator<em> vs</em> Creative Powerhouse.</div>
+  <div class="lead" style="margin-bottom:20px;max-width:760px">Higgsfield is a generative studio. Its Virality Predictor is a free funnel into a credit-heavy generation platform. Stimulus is model-agnostic — it sits <em>above</em> every generator as the single validation standard.</div>
+
+  <!-- Pricing comparison bar -->
+  <div style="display:flex;gap:12px;margin-bottom:18px">
+    <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px 20px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:8px">Higgsfield · per usable clip</div>
+      <div style="font-size:30px;font-weight:800;color:var(--red)">$3.36 – $15.00</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">After 3–5× iteration rate on Sora 2 / Veo 3.1 / Kling 3.0. Cost rises with resolution and model complexity. Credits are consumed even on unusable outputs.</div>
+    </div>
+    <div style="display:flex;align-items:center;font-size:24px;color:var(--faint);padding:0 4px">vs</div>
+    <div style="flex:1;background:rgba(228,189,109,.07);border:1px solid rgba(228,189,109,.3);border-radius:12px;padding:16px 20px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Stimulus · per diagnostic scan</div>
+      <div style="font-size:30px;font-weight:800;color:var(--green)">$0.15 – $1.95</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px">Per 15s scan. Gaze-only at $0.15. Full suite + vernacular at $1.95. You pay for what you compute — no iteration waste, no platform lock-in.</div>
+    </div>
+  </div>
+
+  <!-- Feature comparison table -->
+  <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:12px 20px;border-bottom:1px solid var(--line);background:var(--panel2)">
+      <div>Feature</div><div>Higgsfield Virality Predictor</div><div style="color:var(--gold)">Stimulus</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:11px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px">
+      <div style="color:var(--muted)">Output depth</div>
+      <div style="color:var(--text)">Single score (0–100) + hook timestamps</div>
+      <div style="color:var(--gold)">6 cortical supergroups · 300+ region predictions</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:11px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;background:rgba(255,255,255,.02)">
+      <div style="color:var(--muted)">Model type</div>
+      <div style="color:var(--text)">Modeled audience · proprietary black box</div>
+      <div style="color:var(--gold)">Algonauts-benchmarked · TRIBE v2 fMRI layer</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:11px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px">
+      <div style="color:var(--muted)">Rationale / edit guidance</div>
+      <div style="color:var(--text)">None — score only</div>
+      <div style="color:var(--gold)">Why-it-won analysis + timeline curves</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:11px 20px;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;background:rgba(255,255,255,.02)">
+      <div style="color:var(--muted)">Generator dependency</div>
+      <div style="color:var(--text)">Locked to Higgsfield studio ecosystem</div>
+      <div style="color:var(--gold)">Model-agnostic — validates any generator's output</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;padding:11px 20px;font-size:13px">
+      <div style="color:var(--muted)">Indian market fit</div>
+      <div style="color:var(--text)">USD credits, no UPI, no vernacular cohort</div>
+      <div style="color:var(--gold)">UPI checkout · Hindi / Tamil / Telugu cohort model</div>
+    </div>
+  </div>
+
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Competitive Position</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 11 TIER RATIONALE ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§02 · New Pricing Architecture</span><span>11 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot"></span>Why This Pricing</div>
+  <div class="subtitle" style="margin-bottom:8px">Enough to work.</div>
+  <div class="lead" style="margin-bottom:26px"><em>Not enough to waste.</em> Three decisions made deliberately — each one fixes a specific flaw in the old pair-based model.</div>
+  <div class="nr">
+    <div class="nrn">01</div>
+    <div class="nrb">
+      <div class="nrt">Entry at $96/month opens the market the old $499 Scout tier completely shut out.</div>
+      <div class="nrd">Indian freelancers and Tier 2 boutiques manage ₹20K–₹45K monthly SaaS budgets. $96 (~63 full analyses at 1,500 SNT each) fits this range. This is not a discount — it's a correctly-scoped entry point that generates revenue while acquiring users who grow into the $422 tier.</div>
+    </div>
+    <div class="nrv">$499→₹8K</div>
+  </div>
+  <div class="nr">
+    <div class="nrn">02</div>
+    <div class="nrb">
+      <div class="nrt">5 analyses at ₹8,000 is enough to work — not enough to make the entry tier a permanent home.</div>
+      <div class="nrd">A freelancer wins a corporate pitch (Muthoot, HDFC) and immediately needs 8–10 analyses that month. They hit the $96 ceiling and face either $24/analysis overage or the $422 plan. The math naturally drives upgrades rather than churn.</div>
+    </div>
+    <div class="nrv">63→280 analyses</div>
+  </div>
+  <div class="nr">
+    <div class="nrn">03</div>
+    <div class="nrb">
+      <div class="nrt">$96 → $422 → $1,446 is a 4.4× then 3.4× step — with $6/scan as the on-demand bridge.</div>
+      <div class="nrd">The $6 on-demand scan captures users between commitment decisions. When overages stack up, the monthly plan becomes the obvious choice. This generates NRR above 125% as the expansion motion is triggered by usage, not by a sales call.</div>
+    </div>
+    <div class="nrv">&gt;125% NRR</div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Rationale</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 11 DIVIDER §03 ─── -->
+<div class="slide bg-div">
+<div class="si">
+  <div class="sh"><span>§03</span><span>12 / 19</span></div>
+<div class="si-body">
+  <div style="height:60px"></div>
+  <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:20px">§03 · Go-to-Market Strategy</div>
+  <div class="display">Five layers.</div>
+  <div style="font-size:92px;font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic;color:var(--gold)">Twelve weeks</div>
+  <div class="display">to market.</div>
+  <div class="ghost">03</div>
+  </div>
+<div class="sf"><span>Stimulus by Tridha</span><span>Go-to-Market</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 12 LAYER 1 MARKET INTEL ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§03 · Go-to-Market Strategy</span><span>13 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-b"></span>Layer 1 · Market Intelligence</div>
+  <div class="title" style="margin-bottom:22px">Play here.<br><em>Not everywhere.</em></div>
+  <div class="g2" style="flex:1">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="card">
+        <div class="cl">TAM — Total Addressable Market</div>
+        <div style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px">₹51,000 Crore</div>
+        <div class="cb">India's total digital media ad spend (FY2025), capturing ~46% of the country's total ad spend. This is the macro pool Stimulus lives inside.</div>
+      </div>
+      <div class="card">
+        <div class="cl">SAM — Serviceable Addressable Market</div>
+        <div style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px">₹1.8L – ₹2.5L / brand / month</div>
+        <div class="cb">Performance marketing agencies + active B2B SaaS and e-commerce brands with AI tools budgets in this range. These are buyers who already have a budget line for tools like Stimulus.</div>
+      </div>
+      <div class="card">
+        <div class="cl">SOM — Serviceable Obtainable Market</div>
+        <div style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px">Transformers + Democratizers</div>
+        <div class="cb">Bangalore (91% AI adoption, ₹2.2L avg budget), Mumbai (87%, ₹1.9L), Ahmedabad (68%, ₹75K), Jaipur (61%, ₹55K). These are our actual reachable buyers.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="card card2">
+        <div class="cl">Where to Play · High-Margin Focus</div>
+        <div class="ct">Pre-testing ad creatives, landing pages, and video hooks before any media spend is committed.</div>
+        <div class="cb" style="margin-top:6px">The focus is purely on "scientific pre-testing" — the validation layer that sits above every generative tool and below every media buy.</div>
+      </div>
+      <div class="card card2">
+        <div class="cl">Where NOT to Play</div>
+        <div class="ct">Generative video production. Full stop.</div>
+        <div class="cb" style="margin-top:6px">Stimulus will not compete with Kling, Runway, or Luma as an editing engine. It sits strictly as the <strong>Validation and Diagnostic Layer</strong> above the creative stack.</div>
+      </div>
+      <div class="card card2">
+        <div class="cl">Macro Signal · Why Now</div>
+        <div class="ct">iOS privacy restrictions killed IDFA attribution.</div>
+        <div class="cb" style="margin-top:6px">60–80% of IDFA-based attribution is now suppressed. Pre-launch neural validation is the only scalable way to guarantee ad ROAS when post-launch signals are unreliable.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Market</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 13 LAYER 2 ICP ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§03 · Go-to-Market Strategy</span><span>14 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-o"></span>Layer 2 · ICP &amp; Segmentation</div>
+  <div class="subtitle" style="margin-bottom:22px">Target the <em>Transformers.</em><br>Not the Tinkerers.</div>
+  <div class="g2" style="flex:1;align-items:start">
+    <div>
+      <div style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:14px">Segment Priority Matrix</div>
+      <div class="nr" style="margin-bottom:10px">
+        <div class="nrn" style="color:var(--gold)">01</div>
+        <div class="nrb">
+          <div class="nrt">Beachhead · First Movers</div>
+          <div class="nrd">High-velocity social storytelling agencies (Social Panga, echoVME) running multi-platform campaigns where the first 0.3 seconds determines conversion. These buyers understand why the brain matters.</div>
+        </div>
+      </div>
+      <div class="nr" style="margin-bottom:10px">
+        <div class="nrn">02</div>
+        <div class="nrb">
+          <div class="nrt">Fast Followers</div>
+          <div class="nrd">High-competition B2B SaaS and BFSI companies (Muthoot, HDFC campaigns) optimising complex explanation funnels. They need the "why it won" rationale for board-level sign-off.</div>
+        </div>
+      </div>
+      <div class="nr">
+        <div class="nrn" style="color:var(--faint)">03</div>
+        <div class="nrb">
+          <div class="nrt" style="color:var(--muted)">Late Adopters · Deprioritise</div>
+          <div class="nrd">Standard traditional brick-and-mortar SMBs with minimal digital footprint. Not the 2026 target.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:14px">Primary Target Agencies</div>
+      <table class="tbl">
+        <thead><tr><th>Agency</th><th>City</th><th>Why They Buy</th></tr></thead>
+        <tbody>
+          <tr><td><strong>WATConsult</strong></td><td>Mumbai</td><td>Data-driven integrated marketing for Tata, Nikon</td></tr>
+          <tr><td><strong>Social Panga</strong></td><td>Bangalore</td><td>Social storytelling, Flipkart — hook timing is everything</td></tr>
+          <tr><td><strong>echoVME</strong></td><td>Chennai</td><td>D2C and regional brands — vernacular cohort model is the hook</td></tr>
+          <tr class="tbl-hl"><td><strong>ROI Minds</strong></td><td>Mohali</td><td>E-commerce performance — pre-spend validation = direct ROI</td></tr>
+          <tr><td><strong>Webchutney</strong></td><td>Mumbai</td><td>Creative innovation for Swiggy, Red Bull, Uber</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>ICP</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 14 LAYER 3 VALUE PROP ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§03 · Go-to-Market Strategy</span><span>15 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-v"></span>Layer 3 · Value Proposition &amp; Positioning</div>
+  <div class="subtitle" style="margin-bottom:8px">The job isn't to test content.</div>
+  <div class="lead" style="margin-bottom:26px;max-width:700px"><em>It's to stop burning the media budget.</em> Three jobs, one platform.</div>
+  <div class="g3" style="margin-bottom:18px">
+    <div class="card">
+      <div class="cl">Functional Job</div>
+      <div class="ct">"Stop the thumb."</div>
+      <div class="cb">"I need to know if our 15-second ad hook will stop a user's thumb in under 0.3 seconds — before I waste our client's media budget." The scroll-stop probability in the first 0.3s is worth more than any post-launch A/B test.</div>
+    </div>
+    <div class="card card2">
+      <div class="cl">Emotional Job</div>
+      <div class="ct">"Pitch with proof, not opinion."</div>
+      <div class="cb">"I want to walk into a client meeting with a brain scan that says why Creative B wins — not a creative director's gut. I want scientific confidence, not a debate." Stimulus turns subjectivity into a defensible number.</div>
+    </div>
+    <div class="card">
+      <div class="cl">Operational Job</div>
+      <div class="ct">"Cut 12 hours to 2."</div>
+      <div class="cb">"I need to reduce our content testing and revision loop from 12–18 hours down to under 2 hours." Entropik reports 60% reduction in time-to-insight. Stimulus targets the same benchmark, accessible at ₹12 per scan.</div>
+    </div>
+  </div>
+  <div class="card" style="background:var(--panel2)">
+    <div class="cl" style="margin-bottom:12px">The Scientific Standard · Agency Partnerships</div>
+    <div style="display:flex;gap:16px;align-items:flex-start">
+      <div style="flex:1.2">
+        <div class="vbs-badge">⬡ &nbsp;Verified by Stimulus</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6">Agencies running high-spend campaigns for <strong>Tata, Nikon, Reliance</strong> receive co-branded neural validation reports stamped with this badge. The badge means: <em>this creative was validated at the cortical level before any media budget was committed</em>. Biometric proof — not a creative director's gut.</div>
+      </div>
+      <div style="width:1px;background:var(--line);align-self:stretch"></div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">Retainer → Performance Contract</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6">When an agency can show pre-spend cortical validation, they move from flat retainers to <strong>performance-based fees</strong> — capturing a % of improved client ROI. Stimulus becomes the instrument that justifies the performance premium.</div>
+      </div>
+      <div style="width:1px;background:var(--line);align-self:stretch"></div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">The Moat</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6">Once an agency's clients expect "Verified by Stimulus" reports, switching away means losing the badge — and the scientific authority it carries in board-level reviews. Rigor creates switching cost without lock-in tactics.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Value Prop</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 15 LAYER 4 GTM MOTION ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§03 · Go-to-Market Strategy</span><span>16 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-p"></span>Layer 4 · Go-to-Market Motion</div>
+  <div class="subtitle" style="margin-bottom:22px">Three channels.<br><em>One compounding flywheel.</em></div>
+  <div class="g3" style="flex:1;align-items:start">
+    <div class="lc" style="display:flex;flex-direction:column;gap:9px">
+      <div class="ln">Channel Mix · AI-as-a-User (MCP)</div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">The MCP Server</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">Stimulus as a skill inside Claude, ChatGPT &amp; Cursor</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">By 2026, AI assistants are the OS for creative work. Stimulus launches as an open-standard MCP server — a creative director says <em style="color:var(--gold)">"Claude, brain-scan these three variants"</em> without leaving their chat.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:5px">Zero-Friction Adoption</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">From "a tab in a browser" to "a skill in the AI assistant"</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">MCP collapses the integration hurdle entirely. Serves the 91% of Indian C-suites who rank speed of deployment as their #1 buying driver. No new login. No onboarding.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:5px">D2C On-Demand</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">$6/scan · UPI checkout · first result in 60 seconds</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">No free tier — the $6 scan is the proof of value. When overages stack, the monthly plan is the obvious move.</div>
+      </div>
+    </div>
+    <div class="lc" style="display:flex;flex-direction:column;gap:9px">
+      <div class="ln">Demand Generation</div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);margin-bottom:5px">"Comment BRAIN" Campaign</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">Viral loop on LinkedIn &amp; Instagram</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">Post a scan result publicly → invite others to scan their own content. Brain heatmaps become shareable social proof.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:5px">"Cyber Cafe" Activation</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">Offline B2B activation in Gurugram</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">Walk into an agency's office, scan their latest creative live, show results in 60 seconds. High-conversion, high-PR tactic.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:5px">Scarcity Reels</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">Before/after brain scans of real campaigns</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">Anonymised comparisons shared publicly. Shows what the brain sees vs. what agencies assumed.</div>
+      </div>
+    </div>
+    <div class="lc" style="display:flex;flex-direction:column;gap:9px">
+      <div class="ln">Sales Motion</div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:5px">PLG-to-PLS Trigger</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">80% token usage → HubSpot cadence fires</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">Upgrade offer, case study, and a call from a Growth PM — all triggered by usage signal, not a cold outreach.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:5px">Funnel Architecture</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">$6 scan → $96 → $422 → $1,446</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">Each step triggered by usage, not a sales call. No free tier — the $6 scan is the entry point and the proof of value.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:12px 14px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:5px">Territory Sequence</div>
+        <div style="font-size:13px;color:var(--text);font-weight:600;margin-bottom:4px">Bangalore → Mumbai → Tier 2 hubs</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5">Bangalore first (91% AI adoption), then Mumbai (87%), then Ahmedabad (68%) and Jaipur (61%).</div>
+      </div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>GTM Motion</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 16 LAYER 5 EXECUTION ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§03 · Go-to-Market Strategy</span><span>17 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot dot-g"></span>Layer 5 · Execution Engine</div>
+  <div class="subtitle" style="margin-bottom:22px">12 weeks from pilot<br><em>to public.</em></div>
+  <div class="g3" style="flex:1;align-items:start">
+    <div class="ph">
+      <div class="pw">Weeks 1–4 · Pilot &amp; Proof</div>
+      <div class="pt2">Validate quietly.<br>Build the case study.</div>
+      <div class="pi">Run private closed pilots with Social Panga and ROI Minds — 2 "Transformer" beachhead agencies.</div>
+      <div class="pi">Build a Muthoot FinCorp-style case study proving that Stimulus reduced prefrontal cognitive load and lifted click-through rates by 3.5×.</div>
+      <div class="pi">Validate token model pricing tolerance with real users on the $100 Freelancer tier.</div>
+      <div class="pi">Confirm GPU compute costs vs. actual usage patterns at 40K SNT/month.</div>
+      <div style="margin-top:16px;padding:12px 14px;background:var(--panel2);border-radius:10px;font-size:13px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">Goal:</span> 2 signed pilot agreements + 1 publishable case study before public launch.</div>
+    </div>
+    <div class="ph">
+      <div class="pw">Weeks 5–8 · Public Launch</div>
+      <div class="pt2">Open the door.<br>Start the flywheel.</div>
+      <div class="pi">Deploy the Stimulus MCP Server — making Stimulus callable by AI agents and developer workflows.</div>
+      <div class="pi">Open the $6 on-demand scan portal with UPI checkout.</div>
+      <div class="pi">Launch the "Comment BRAIN" viral loop campaign across LinkedIn and Instagram simultaneously.</div>
+      <div class="pi">Publish the pilot case study as the first major demand generation asset.</div>
+      <div style="margin-top:16px;padding:12px 14px;background:var(--panel2);border-radius:10px;font-size:13px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">Goal:</span> 500+ on-demand scan users in Week 5–6. 10% convert to Startup tier.</div>
+    </div>
+    <div class="ph">
+      <div class="pw">Weeks 9–12 · Scale</div>
+      <div class="pt2">Expand and<br>compound.</div>
+      <div class="pi">Execute the "Cyber Cafe" offline activation in Gurugram — live scans inside agency offices for maximum B2B PR impact.</div>
+      <div class="pi">Activate HubSpot PLG-to-PLS cadences for users approaching token limits — push Growth Agency upgrades.</div>
+      <div class="pi">Begin enterprise sales cadence for Performance Studio tier with holding companies and BFSI clients.</div>
+      <div class="pi">Launch Agency Booster Pack ($10 / 10K SNT) as the mid-tier expansion revenue product.</div>
+      <div style="margin-top:16px;padding:12px 14px;background:var(--panel2);border-radius:10px;font-size:13px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">Goal:</span> ≥2 agencies on Growth Agency tier. NRR trajectory above 125%.</div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>Execution</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 17 KPIs ─── -->
+<div class="slide bg-std">
+<div class="si">
+  <div class="sh"><span>§03 · Go-to-Market Strategy</span><span>18 / 19</span></div>
+<div class="si-body">
+  <div class="pill"><span class="dot"></span>Metrics &amp; North Star KPIs</div>
+  <div class="subtitle" style="margin-bottom:22px">What success looks like<br><em>at 12 weeks.</em></div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="kr" style="border-top:1px solid rgba(255,255,255,.08)">
+      <div class="kt">Strategic</div>
+      <div style="flex:1"><div class="kn">Net Revenue Retention (NRR)</div><div class="kd">Achieved by expansion revenue when freelancers upgrade from the $100 plan to the $420 Growth Agency tier. This is the single most important measure of whether the new pricing model is working.</div></div>
+      <div class="kv">&gt;125%</div>
+    </div>
+    <div class="kr">
+      <div class="kt">Strategic</div>
+      <div style="flex:1"><div class="kn">LTV : CAC Ratio</div><div class="kd">Self-serve PLG channels ($6 on-demand scan portal) combined with the MCP Server keep customer acquisition costs exceptionally low. A 5:1 ratio means the platform funds its own growth.</div></div>
+      <div class="kv">&gt;5:1</div>
+    </div>
+    <div class="kr">
+      <div class="kt">Operational</div>
+      <div style="flex:1"><div class="kn">On-Demand-to-Paid Conversion</div><div class="kd">The share of on-demand scan users ($6/scan portal) who transition to a fixed monthly plan (Startup $96) within 30 days. Industry benchmark for PLG tools is 5–8%. We target 10%.</div></div>
+      <div class="kv">10%</div>
+    </div>
+    <div class="kr">
+      <div class="kt">Operational</div>
+      <div style="flex:1"><div class="kn">Time to First Value (TTV)</div><div class="kd">The percentage of users who experience their first brain heatmap within 60 seconds of dropping their video into the platform. Speed of first value is the single biggest predictor of activation.</div></div>
+      <div class="kv">&lt;60s</div>
+    </div>
+    <div class="kr">
+      <div class="kt">Diagnostic</div>
+      <div style="flex:1"><div class="kn">Scroll-Stop Velocity</div><div class="kd">Cognitive load rating proving a measurable drop in focus drift and prefrontal cortex over-stimulation after a scan-driven edit. This is the proof point for client-facing case studies.</div></div>
+      <div class="kv">0.3s</div>
+    </div>
+  </div>
+  </div>
+<div class="sf"><span>Tridha · 2026</span><span>KPIs</span></div>
+</div>
+</div>
+
+<!-- ─── SLIDE 18 CLOSE ─── -->
+<div class="slide bg-div">
+<div class="si">
+  <div class="sh"><span>§06 · Next Step</span><span>19 / 19</span></div>
+<div class="si-body">
+  <div style="height:40px"></div>
+  <div class="display">The decision is worth</div>
+  <div class="display">more than</div>
+  <div style="font-size:92px;font-weight:900;line-height:.95;letter-spacing:-.03em;font-style:italic;color:var(--gold)">the scan.</div>
+  <div style="height:28px"></div>
+  <div class="lead" style="max-width:620px">But the scan is what makes the decision defensible. The new pricing model funds Stimulus's compute architecture sustainably. This GTM motion puts it in front of the agencies who will use it, win with it, and expand.</div>
+  <div style="height:24px"></div>
+  <div class="g3">
+    <div class="card">
+      <div class="cl">Immediate · This Week</div>
+      <div class="ct">Close pilot agreements.</div>
+      <div class="cb">Sign closed pilot terms with Social Panga and ROI Minds. Begin scanning their live campaigns at the new Startup tier rate to validate the token model before public launch.</div>
+    </div>
+    <div class="card card2">
+      <div class="cl">30 Days · Public</div>
+      <div class="ct">Open the self-serve portal.</div>
+      <div class="cb">Launch $6 on-demand scan portal with UPI checkout live. Deploy MCP Server. Initiate the "Comment BRAIN" campaign. This is the moment the new pricing model meets the market.</div>
+    </div>
+    <div class="card">
+      <div class="cl">90 Days · Scale</div>
+      <div class="ct">Put 2 agencies on $420.</div>
+      <div class="cb">Drive at least 2 beachhead agencies to the Growth Agency $422 tier. Activate the PLG-to-PLS cadence via HubSpot. Begin the NRR &gt;125% trajectory that proves the pricing model works.</div>
+    </div>
+  </div>
+  <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+    <div style="font-size:18px;font-weight:600;color:var(--text)">stimulus.tridha.net</div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)">Stimulus by Tridha · 2026 · End</div>
+  </div>
+
+</div>
+</div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="nb" id="prev">&#8592;</button>
+  <span class="nc" id="counter">1 / 19</span>
+  <button class="nb" id="next">&#8594;</button>
+  <div class="ns"></div>
+  <button class="nr2" id="reset">Reset &nbsp;R</button>
+</div>
+
+<script>
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+const counter = document.getElementById('counter');
+const total = slides.length;
+
+function go(n) {
+  slides[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(total - 1, n));
+  slides[cur].classList.add('active');
+  counter.textContent = `${cur + 1} / ${total}`;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(cur + 1);
+  else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') go(cur - 1);
+  else if (e.key === 'r' || e.key === 'R') go(0);
+});
+
+document.getElementById('prev').addEventListener('click', () => go(cur - 1));
+document.getElementById('next').addEventListener('click', () => go(cur + 1));
+document.getElementById('reset').addEventListener('click', () => go(0));
+
+go(0);
+</script>
+</body>
+</html>
